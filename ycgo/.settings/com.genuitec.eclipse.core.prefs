@@ -1,0 +1,4 @@
+#Wed Jul 06 13:50:45 CST 2016
+eclipse.preferences.version=1
+validator.Checked=WebRoot/js/TimeCircles.js,WebRoot/js/jquery-1.7.2.min.js,WebRoot/js/jquery-1.9.1.js,WebRoot/js/jquery.mobile-1.4.5.js
+validator.Unchecked=
