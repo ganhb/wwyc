@@ -1,0 +1,4 @@
+[ERROR] 2016-07-21 16:21:51,106 com.dragon.service.impl.UserServiceImpl 检查用户是否存在操作异常java.sql.SQLException: Column Index out of range, 0 < 1.
+[INFO ] 2016-07-21 20:48:17,565 com.dragon.service.impl.UserServiceImpl this is result == true
+[INFO ] 2016-07-21 20:59:21,787 com.dragon.service.impl.UserServiceImpl this is result == true
+[INFO ] 2016-07-21 20:59:46,118 com.dragon.service.impl.UserServiceImpl this is result == true

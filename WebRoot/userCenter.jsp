@@ -1,0 +1,727 @@
+<%@page import="com.dragon.service.UserService"%>
+<%@page import="javax.swing.*"%>
+
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>个人中心</title>
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="css/yichegou.min.css" />
+<link rel="stylesheet" href="css/zxx.lib.css" />
+<link rel="stylesheet" href="css/wemove.css"/>
+<link rel="stylesheet" type="text/css" href="css/xcComfirm.css" />
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/xcComfirms.js"></script>
+<script src="js/custorToast.js"></script>
+<script src="js/operator.js"></script>
+
+<script>
+$(function() {
+	function setReload() {
+			window.location.reload();
+			var cphm = $("#testCphm").val();
+			if(null == cphm || "" == cphm || "null" ==cphm){
+				window.wxc.xcConfirm("您还未进行车牌号登记，请挪步到我的车辆中",window.wxc.xcConfirm.typeEnum.success);
+			}
+		}
+	function onreloads() {
+			window.location.reload();
+		}
+	});
+</script>
+</head>
+<body >
+	 <%
+		response.setCharacterEncoding("utf-8");
+		response.setHeader("iso-8859-1","utf-8");
+		request.setCharacterEncoding("utf-8");
+		
+		String openId = (String) session.getAttribute("openId");
+		session.setAttribute("openId", openId);
+		//微信获取用户名称
+		String userNames = (String) session.getAttribute("nickname");
+		//用户自己输入名称
+		String personName = (String) session.getAttribute("personName");
+		String personCphm = (String) session.getAttribute("personCphm");
+		String personCpsf = (String) session.getAttribute("personCpsf");
+		String personCphms = personCpsf + personCphm;
+		String personCity = (String) session.getAttribute("city");
+		String personMobile = (String) session.getAttribute("personMobile");
+		String personSex = (String) session.getAttribute("personSex");
+		String personAddress = (String) session.getAttribute("personAddress");
+		String sexMsg = null;
+		
+	 	if (personSex.equals("1")) {
+			sexMsg = "先生";
+		} else if (personSex.equals("2")) {
+			sexMsg = "女士";
+		} else {
+			sexMsg = "用户";
+		}
+		if (null != personName) {
+			userNames = personName;
+		} 
+		if (null == personAddress) {
+			personAddress = "";
+		}
+	%> 
+	<!--个人中心页-->
+	<div data-role="page" id="page_me" data-ajax="false" onload="onreloads()">
+		<div data-role="content" id="content_me">
+			<!--头像块-->
+			<div class="me_message">
+				<div class="me_photo">
+					<div class="photo">
+						<%
+							String headImgUrl = (String) session.getAttribute("headImgUrl");
+						%>
+						<a href="#"><img class="mew" src="<%=headImgUrl%>" /> </a>
+					</div>
+					<a href="CarSign.jsp">V3</a>
+				</div>
+				<div class="myname">
+					<p>
+						Hi！<%=userNames%>
+						<%=sexMsg%>;
+					</p>
+					<p>您是V3会员，距离升级还有：150经验值</p>
+					<div class="level"></div>
+					<p>50/250</p>
+				</div>
+			</div>
+			<!--内容资料-->
+			<div class="myscore" id="myscore" data-role="navbar">
+				<ul>
+					<li id="score"><a data-theme="d" class="score" data-role="button" data-corners="false">
+						<p>我的积分 180</p>
+						<p>如何获取积分？</p>
+					</a></li>
+				</ul>
+			</div>
+			<h2 class="peo_data">个人资料</h2>
+			<ul class="move_fun" id="move_fun" data-role="listview" data-theme="d">
+				<li data-icon="none"><a data-transition="none" id="Member_Info">会员信息</a></li>
+				<li data-icon="none"><a data-transition="none" id="MyCar_Skip">我的车辆</a></li>
+				 <li data-icon="none"> <a data-transition="none" id="Move_Record">移车记录</a></li> 
+			</ul>
+			<input type="hidden" id="testCphm" name="testCphm" value="<%=personCphm %>" /><!--  -->
+		</div>
+		<div data-role="footer" id="footer_me" data-position="fixed">
+			<div class="footer_nav" data-role="navbar">
+				<ul>
+					<li><a href="#" data-transition="none" data-theme="d"><span class="blur focus"></span><span>个人中心</span> </a></li>
+					<li><a href="#serve_center" data-transition="none"><span class="blur"></span><span>服务中心</span> </a></li>
+				</ul>
+			</div>
+		</div>
+		<script>
+			function myReload(){
+				window.loaction.reload();
+			}
+			$("#Member_Info").click(function(){
+				$.mobile.changePage("#page_renew_my_message",{transition : "slideup"});
+			})
+			$("#score").click(function(){
+				$.mobile.changePage("#page_score",{transition : "slideup"});
+			})
+			$("#Move_Record").click(function(){
+				$.mobile.changePage("#page_history",{transition : "slideup"});
+			})
+			$("#MyCar_Skip").click(function(){
+				var skipCphm = $("#testCphm").val();
+				if(null == skipCphm || skipCphm == "" || "null" == skipCphm){
+//					window.location.href = "#page_car_add_none";//这个也行 ，不过不符合JQM设计
+					$.mobile.changePage("#page_car_add_none",{transition : "slideup"});
+				}else{
+					$.mobile.changePage("#page_car_add",{transition : "slideup"});
+				}
+			});
+		</script>
+	</div>
+<!-- ************************************************************************************************************************************************************ -->
+<%
+	if(null == personMobile){
+		personMobile = "您还没有填写手机号码";
+	}
+	if(null == personCphm){
+		personCphms = "您还没有登记车牌号码";
+	}
+ %>
+	 <!--我的基本信息修改页-->
+	<div data-role="page" id="page_renew_my_message" style="background:#f2f2f4;" data-ajax="false">
+    <div data-role="content" id="content_renew"> 
+    	<form method="post"> 
+        	<ul data-role="listview" class="mymessage" id="renew_message">
+            	<li  data-icon="none"><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;头像
+            		<img  src="<%=headImgUrl%>" style="margin-left:7em;margin-top:2.5px" height="45" />
+            		</a>
+            	</li>
+                
+                <li  data-icon="none"><a class="xingM"  name="updateNames">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名&nbsp;&nbsp;
+                	<input style="line-height:32px;" id="updateName" name="updateName" type="text" data-role="none" value="<%=personName%>"/>
+                	</a>
+                </li>
+                
+                <li  data-icon="none"><a class="xingB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;性别&nbsp;
+                	<select data-role='none' id="select_sex" name="updateSex">
+                		<option value="1">先生</option>
+                		<option value="2">女士</option>
+                	</select>  
+                	</a>
+                </li>
+                
+                <li data-icon="none">
+                    <a style="display:block;width:100%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍贯 
+                       <span id="productList"> </span>
+                    </a>
+                </li>
+                
+                <li data-icon="none">
+                	<a class="shouJ" >联系方式&nbsp;&nbsp;
+                		<span style="color:rgba(0,0,0,0.54) ">
+						<input class="add2" pattern="^1[3|4|5|7|8]\d{9}$" data-role="none" type="tel" value="<%=personMobile %>" name="updateMobile" placeholder="11位手机号码" id="updateMobile" required/>
+						</span>
+					</a>
+				</li>
+                
+              	<li data-icon="none"><a style="display:block;width:100%;">
+              		<span id="aaa"> 现住地址 </span>
+                    <span id="productList1" > </span>
+                    </a>
+                </li>
+				
+					<li data-icon="none"><a style="display:block;width:100%;">
+              		<span id="aaa" style="margin-left:6rem">  &nbsp; </span>
+                    <input  type="text" data-role="none" placeholder="详细住址" id="updateAddress" name="updateAddress" value="<%= personAddress %>"/> 
+                    </a>
+                </li>
+				
+            </ul>
+            <!-- #page_me -->
+         	<a id="update_btn" class="btn_my"  onclick="onreloads()"><input type="submit" value="保存" data-theme="d"/></a>
+       	<input type="hidden" value="<%=openId%>" id="user_open_id"/>
+      </form> 	
+       	
+     </div>
+   </div>
+ <script type="js/degree.js"></script>
+     <script>
+     
+	    	$("#updateMobile").blur(function(){
+				var updateMobile = $("#updateMobile").val();
+				checkMobile(updateMobile);
+			})
+       		$("#update_btn").click(
+			function() {
+				var updateName = $("#updateName").val();
+				var openId = $("#user_open_id").val();
+				var updateSex = $("#select_sex option:selected").val();
+				var updateMobile = $("#updateMobile").val();
+				var updateAddress = $("#updateAddress").val();
+				
+			   if(updateName == ""){
+			   	 window.wxcs.xcComfirm("您还未输入姓名",window.wxcs.xcComfirm.typeEnum.custom);
+			   }else if(updateMobile == ""){
+			   window.wxcs.xcComfirm("您还未输入手机号",window.wxcs.xcComfirm.typeEnum.custom);
+			   }else{
+			   var op = new AjaxOp();
+			   op.dataType = "json";
+			   //卧槽 这里地址没写全，死命传值不进去
+			   op.url = "reg.do?openId="+openId+"&updateName="+updateName+"&updateSex="+updateSex+"&updateMobile="+updateMobile+"&updateAddress="+updateAddress;
+			   op.callback=function(data){
+			   }
+		   	   op.execute();
+		   	   $.mobile.changePage("#page_me",{transition : "slideup"});
+		   	   }
+			});
+			function onreloads(){
+       			window.location.reload();
+       		}
+      	</script>
+   </div>
+
+  <!-- ******************************************************************************************************************************** -->
+   <%List list = (List)session.getAttribute("list"); %>
+   <!--添加我的车辆 车名片-->
+  <div data-role="page" id="page_car_add" style="background:#f2f2f4;" data-title="我的车辆" data-ajax="false">
+       	<div data-role="content" id="content_car_add">
+       	
+       		<div class="add_newCon" id="car_info_msg">        	
+                <c:forEach items="${list}" var="list" varStatus="status">
+                    <div class="my_car" id="my_car_${ status.index }"  >
+                    	
+                    	<img  src="img/header_logo.png"/>
+                         <img src="img/my_car.png"/> 
+                    	<a class="message_incard" href="#page_sign">                            
+                            <span class="my_mess" >
+                            
+                            	
+                            	
+                                <span class="" id="mpName">${list.getContactName()} </span><!-- ${ status.index } 从0开始 -->
+                                <br/><span id="mpMobile">${ list.getContactMobilePhone()}</span><br/>
+                                <div class="car_nbg">
+                                    <span class="dot"></span>
+                                    <span class="car_num" id="mpCphm">${list.getCpsf()} ${list.getCphm()}</span>
+                                    <span class="dot"></span>
+                                </div>
+                          	</span>
+                        </a>
+                        <div class="car_logo car_photo" >
+                        	<!-- 存放图片 -->
+                        	<!--<img src="img/car_photo1.png"/>-->
+                        </div>
+                        <script>
+                        	
+                        	$("#my_car_${ status.index }").click(function(){
+                        	//	alert(${ status.index });
+                        		
+								//这个直接使用"变量名"就可以了 ，不用转义",也不用使用contact或join
+                        		var insertName = "${list.getContactName()}";
+                        		var insertCpsf = "${list.getCpsf()}";
+                        		var insertCphm = "${list.getCphm()}";
+                        		var insertMobile = "${ list.getContactMobilePhone()}";
+                        		var index = "${status.index}";
+                        		
+								$("#name").attr("value",insertName);
+								$("#insertMobile").attr("value",insertMobile);
+								$("#carNum").attr("value",insertCphm);
+								$("#car_index").attr("value",index);
+                        	})
+                        </script>
+                   </div> 
+                  </c:forEach>
+                               
+                    <div class="new_c" id="add_page">
+                    	<a id="#add_t" class="add_t"></a>
+                    	<input type="hidden" id="identify"/>
+                    </div>
+                    <script>
+                    	$("#add_page").click(function(){
+                    		$.mobile.changePage("#page_sign",{transition : "slideup"});
+                    	})
+                    
+                    	//此作用是点击+号页面的时候把值传到第二个页面作为标识位
+                    	$("#add_page").click(function(){
+                    		$("#identify").attr("value","a"); 
+                    		var temp = $("#identify").val();   
+                    		$("#identifity").attr("value",temp);
+                    	});
+                    </script>
+                               
+            </div>
+        </div> 
+      	
+  </div>
+  <!-- 点击＋号界面 -->
+    <div data-role="page" id="page_car_add_none" style="background:#f2f2f4;" data-title="我的车辆" data-ajax="false">
+       	<div data-role="content" id="content_car_add">
+        	<table class="add_newCon">
+                 <tr id="addNewCar">
+                    <td class="new_c"><a href="#page_sign"></a></td> 
+                </tr>
+            </table>
+        </div> 
+  </div>
+<!-- ************************************************************************************************************************************************************ -->
+	<!--我的车辆注册页-->
+	<div data-role="page" id="page_sign" data-title="我的车辆" data-ajax="false">
+		<div data-role="content" id="content_sign">
+			<form method="post" id="mycar">
+            	<input type="hidden" id="identifity" name="identify"/>
+            	<input type="hidden" id="car_index" name="car_index"/>
+            	<table id="carlist" >
+                	
+                    <tr>
+                    	<td class="pd2 tar" width="80"><span style="color:#f79c1b;">*</span>车辆品牌:</td>
+                        <td class="pd1"  colspan="2" >
+                        	<select data-icon="none" data-role="none" id="insertClpp" name="insertClpp">
+                        		<option>沃尔沃</option>
+                        		<option>本田</option>
+                        		<option>大众</option>
+                        		<option>现代</option>
+                        		<option>雪弗兰</option>
+                        	</select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                    	<td class="tar"><span style="color:#f79c1b;">*</span>车牌号码:</td>
+                        <td class="pd1" width="30">
+                        	<select class="provincename" data-role="none" id="insertCpsf" name="insertCpsf">
+	                	        <option>闽</option>
+	            	            <option>浙</option>
+	        	                <option>赣</option>
+	    	                    <option>湘</option>
+                      		 </select>
+	                    </td>
+                        
+                        <td>
+                        <input data-role="none"  id="carNum" name="insertCphm" required style="text-transform:uppercase;"/>
+                        </td>
+                    </tr>   
+                    
+                    <tr>
+                    	<td class=" tar" width="90"><span style="color:#f79c1b;">*</span>车主姓名:</td>
+                        <td class="pd1" colspan="3" >
+                        <input type="text" id="name" name="insertName" data-role="none" required /></td>
+                    </tr>
+                   
+                    <tr id="add_new_p">
+                    	<td class="tar add1"><span style="color:#f79c1b;">*</span>联系方式:</td>
+                        <td class="pdl1" colspan="2"><input class="add2" maxlength="11" id="insertMobile" name="insertMobile" data-role="none" type="tel"  placeholder="11位手机号码" required/></td>                       
+                    </tr>
+
+                    <tr><!-- 验证码 -->
+                        <td width="120" colspan="2" align="center" class="pdl1 code_in"> <input style=" text-align:right;"  type="text" name="authCode" data-role="none" required/></td>
+                    	<td colspan=""align="center"  width="80"><span onClick="change_code()" class="code_btn">获取验证码</span><span style="display:none;" class="code_btnW" id="code_btnW">59秒后重新发送</span></td>
+                    </tr>
+                    
+                </table>
+                    
+                <table id="carlist1" class="more_add">
+                	  <tr>
+                    	<td class=" tar">车架号:</td>
+                        <td class="pd1" colspan="3">
+                        	<input class="phone" id="insertCjh" name="insertCjh" placeholder="" data-role="none" type="tel" required/>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                    	<td class="pd2 tar" width="80">车辆照片:</td>
+                        <td class="pd1" colspan="" width="40" ><img width="34" src="img/header_logo.png"/></td><td><span class="input-file">点击上传<input type="file" data-role="none"/></span></td>
+                    </tr>
+                    
+                     <tr>
+                    	<td class="pd2 tar" width="80">车辆型号:</td>
+                        <td class="pd1"  colspan="2" >
+                        	<select data-icon="none" data-role="none" id="insertClxh" name="insertClxh">
+                        		<option >xc90</option>
+                        	</select>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                    	<td class="pd2 tar" width="80">车辆颜色:</td>
+                        <td class="pd1"  colspan="2" >	
+                        	<select data-icon="none" data-role="none" id="insertClys" name="insertClys">
+                        		<option >银</option>
+                        		<option >白</option>
+                        		<option >黑</option>
+                        		<option >红</option>
+                        		<option >蓝</option>
+                        		<option >橘</option>
+                        	</select>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                    	<td class="pd2 tar" width="80">车辆类型:</td>
+                        <td class="pd1"  colspan="2" >
+                        	<select data-icon="none" data-role="none" id="insertCllx" name="insertCllx">
+                        		<option>私家车</option>
+                        	</select>
+                        </td>
+                    
+                    </tr>
+                    <tr>
+                    	<td class="pd tar" >车辆保险日期:</td>
+                        <td class="pd1" colspan="2" ><input type="date" value="年-月-日" data-role="none" id="insertBxrq" name="insertBxrq"/></td>
+                        
+                    </tr>
+                    <tr>
+                    	<td class="pd tar" >车辆登记日期:</td>
+                        <td class="pd1" colspan="2" ><input type="date" value="年-月-日" data-role="none" id="insertDjrq" name="insertDjrq"/></td>
+                    </tr>
+                </table> 
+                
+                <a id="regButton" href="" class="mycar_btn" data-theme="d" data-role="button"  >保存</a>  
+                         
+            </form>
+		</div>
+	</div>
+	<script>
+		
+		$("#carNum").blur(function(){
+			var insertCphm = $("#carNum").val().toUpperCase();
+			checkCarNumber(insertCphm);
+		})
+		
+		$("#insertMobile").blur(function(){
+			var insertMobile = $("#insertMobile").val();
+			checkMobile(insertMobile);
+		})
+		
+		$("#regButton").click(function(){
+				
+				var identifity = $("#identifity").val();
+		
+			    var openId = $("#user_open_id").val();//共同一个页面中不管分多少层，都能共享数据，这个openid是上面会员信息表中的
+				var insertClpp = $("#insertClpp option:selected").text();
+				var insertCpsf = $("#insertCpsf option:selected").text();
+				var insertCphm = $("#carNum").val();
+				var insertName = $("#name").val();
+				var insertMobile = $("#insertMobile").val();
+				
+				var insertCjh = $("#insertCjh").val();
+				var insertClxh = $("#insertClxh option:selected").text();
+				var insertClys = $("#insertClys option:selected").text();
+				var insertCllx = $("#insertCllx option:selected").text();
+				
+				var insertBxrq = $("#insertBxrq option:selected").text();
+				var insertDjrq = $("#insertDjrq option:selected").text();
+				
+				var car_index = $("#car_index").val();
+				/*
+				alert("identifity " +identifity+ttt);
+				
+			 	alert(
+							"openId : " + openId 
+						+ 	"\n insertMobile : "	+ insertMobile
+						+ 	"\n insertClpp : " + insertClpp
+						+	"\n insertCpsf : " + insertCpsf
+						+ 	"\n insertCphm : "	+ insertCphm
+						+ 	"\ninsertName  : "	+ insertName
+					  );
+				*/
+				
+			   if(insertClpp == "" || insertCpsf == "" || insertCphm=="" || insertMobile ==""){
+			   		window.wxcs.xcComfirm("您有必填资料未填，请确认后再试",window.wxcs.xcComfirm.typeEnum.custom);
+			   		
+			   }else{
+			   var op = new AjaxOp();
+			   op.dataType = "json";
+			   op.url = "addUser.do?openId="+openId+"&insertName="+insertName+"&insertMobile="+insertMobile+"&insertCpsf="+insertCpsf
+			   			+"&insertCphm="+insertCphm+"&insertCllx="+insertCllx+"&insertClpp="+insertClpp+"&insertClxh="+insertClxh+"&insertCjh="+insertCjh
+			   			+"&insertDjrq="+insertDjrq+"&insertBxrq="+insertBxrq+"&identify="+identifity+" &car_index="+car_index;
+			   op.callback=function(data){
+			   }
+		   	   op.execute(); 
+		   	   $.mobile.changePage("#page_car_add",{transition : "slideup"});
+		   	  // window.location.href = "userCenter.jsp#page_car_add";
+		   	  	onreloads();
+		   	   }
+		   	  });
+	</script>
+
+	<!-- ************************************************************************************************************************************************************ -->	
+	<!--我的积分页-->
+	<div data-role="page" id="page_score" data-title="我的积分" data-ajax="false">
+		<div data-role="content" id="content_score">
+			<div class="score_yu">
+				<p>
+					积分余额 <br /> <span>180</span>
+				</p>
+			</div>
+			<a href="#page_getscore" class="btn_sco" data-theme="d"
+				data-transition="none" data-role="button">获取积分</a>
+			<div class="score_t">积分明细</div>
+			<table class="score_con">
+				<tr>
+					<td>项目积分： <br /> <span>2016/02/03</span>
+					</td>
+					<td><span>66</span> 积分</td>
+					<td>已领取</td>
+				</tr>
+				<tr>
+					<td>项目积分： <br /> <span>2016/02/03</span>
+					</td>
+					<td><span>66</span> 积分</td>
+					<td>已领取</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<!--获取积分页-->
+	<div data-role="page" id="page_getscore" data-title="获取积分" data-ajax="false">
+		<div data-role="content" id="content_getscore">
+			<h2 class="peo_data">行为积分</h2>
+			<ul class="move_fun fun_nav" data-role="navbar">
+				<li><a href="#" class="tsw" data-transition="none"> <img src="img/sign_lit.png" />注册会员</a></li>
+				<li><a href="#" data-transition="none"> <img src="img/carnum_lit.png" />登记车牌号</a></li>
+			</ul>
+			<h2 class="peo_data">网购积分</h2>
+			<ul class="move_fun fun_nav" data-role="navbar">
+				<li><a href="#"><img src="img/carserve_lit.png" />参与汽车服务</a></li>
+			</ul>
+		</div>
+	</div>
+	<!--移车记录页-->
+	<div data-role="page" id="page_history" data-title="移车记录" data-title="移车记录" data-ajax="false">
+		<div data-role="content" id="content_history">
+			<table>
+				<tr>
+					<td class="col_1">20 <span>5月</span>
+					</td>
+					<td class="col_2">车牌号移车 <span>移车地点：</span><span>被移车辆车牌号：</span>
+					</td>
+					<td class="col_3"><br /> 思明区天宝大厦 <br /> 闽D9984K</td>
+					<td class="col_4"><br /> 已向车主发送信息</td>
+				</tr>
+				<tr>
+					<td class="col_1">10 <span>4月</span>
+					</td>
+					<td class="col_2">车牌号移车 <span>移车地点：</span><span>被移车辆车牌号：</span>
+					</td>
+					<td class="col_3"><br /> 思明区天宝大厦 <br /> 闽D9984K</td>
+					<td class="col_4 competed">已完成</td>
+				</tr>
+				<tr>
+					<td class="col_1">06 <span>2月</span>
+					</td>
+					<td class="col_2">车牌号移车 <span>移车地点：</span><span>被移车辆车牌号：</span>
+					</td>
+					<td class="col_3"><br /> 思明区天宝大厦 <br /> 闽D9984K</td>
+					<td class="col_4 competed">已完成</td>
+				</tr>
+				<tr>
+					<td class="col_1">11 <span>1月</span>
+					</td>
+					<td class="col_2">车牌号移车 <span>移车地点：</span><span>被移车辆车牌号：</span>
+					</td>
+					<td class="col_3"><br /> 思明区天宝大厦 <br /> 闽D9984K</td>
+					<td class="col_4 competed">已完成</td>
+				</tr>
+				<tr>
+					<td class="col_1">01 <span>1月</span>
+					</td>
+					<td class="col_2">车牌号移车 <span>移车地点：</span><span>被移车辆车牌号：</span>
+					</td>
+					<td class="col_3"><br /> 思明区天宝大厦 <br /> 闽D9984K</td>
+					<td class="col_4 competed">已完成</td>
+				</tr>
+				<tr>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<!--服务中心-->
+	<div data-role="page" id="serve_center" data-theme="d" data-title="服务中心" data-ajax="false">
+		<div data-role="content" id="serve_content">
+			<div class="banner">
+				<img src="img/banner1.png" />
+				<div class="lit_btn">
+					<span class="lit fbtn"></span> <span class="lit"></span> <span
+						class="lit"></span>
+				</div>
+			</div>
+			<script>
+				$(".lit").mouseover(function(){
+					$(this).addClass("fbtn").siblings().removeClass("fbtn")
+					})
+			</script>
+			<!--内容资料-->
+			<div class="myscore" data-role="navbar">
+				<ul>
+					<li><a href="#" data-theme="d" class="score"
+						data-role="button" data-corners="false">
+							<p class=" lh30 fs16">我的订单</p>
+							<p class="fs16">0</p> <span
+							style="color:rgba(0,0,0,0.7); position:absolute;right:0;top:50%;margin-top:-1.4rem;font-size:3rem;display:block; border-right:1px solid #ddd;width:1px;height:3rem;">
+						</span>
+					</a></li>
+					<li><a href="#" class="baobei" data-theme="d"
+						data-role="button" data-corners="false">
+							<p class="lh30 fs16">我的收藏</p>
+							<p class="fs16">0</p>
+					</a></li>
+				</ul>
+			</div>
+			<ul class="hint" data-role="listview">
+				<li data-icon="none" style="position:relative;"><a href="#"
+					data-transition="none">消息提醒：还有10天您的保险即将到期</a><span class="new_mes">4</span></li>
+			</ul>
+			<table class="serve_box">
+				<tr>
+					<td class="more_serve"><img src="img/daijia.png" /> <span>代驾</span>
+					</td>
+					<td class="more_serve"><img src="img/guoqiao.png" /> <span>过桥费</span>
+					</td>
+					<td class="more_serve"><img src="img/cheyou.png" /> <span>车友活动</span>
+					</td>
+					<td class="more_serve"><img src="img/weizhang.png" /> <span>违章查询</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="more_serve"><img src="img/baoyang.png" /> <span>汽车保养</span>
+					</td>
+					<td class="more_serve song_b"><img src="img/baoxian.png" /> <img
+						class="song" src="img/song.png" /> <span>汽车保险</span></td>
+					<td class="more_serve"><img src="img/nianjian.png" /> <span>汽车年检</span>
+					</td>
+					<td class="more_serve"></td>
+				</tr>
+			</table>
+		</div>
+		<div data-role="footer" id="footer_serve" data-position="fixed">
+			<div class="footer_nav" data-role="navbar">
+				<ul>
+					<li><a href="#page_me" data-transition="none" data-theme="d">
+					<span class="blur "></span><span>个人中心</span></a></li>
+					<li><a href="#" data-transition="none" data-theme="d">
+					<span class="blur focus"></span><span>服务中心</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<script src="js/jquery-1.11.1.js"></script>
+	<script src="js/movecar.js"></script>
+	<script src="js/jquery.mobile-1.4.5.js"></script>
+	<script>
+		/* 车牌号码校验 */
+		 function checkCarNumber(str) {
+			RegularExp =/^[A-Z][A-Z0-9]{5}$/;
+			if (RegularExp.test(str)) {
+				return true;
+			} else {
+				window.wxcs.xcComfirm("您输入的车牌号码有误，请确认后再次输入",window.wxcs.xcComfirm.typeEnum.custom);
+				return false;
+			}
+		}
+		 /* 手机号码校验 */
+		 function checkMobile(str) {
+		 	RegularExp = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+		 	if (RegularExp.test(str)) {
+		 		return true;
+		 	}else{
+		 		window.wxcs.xcComfirm("您所输入的手机格式不正确，请确认后再次输入",window.wxcs.xcComfirm.typeEnum.custom);
+		 		return false;
+		 	}
+		 }
+		
+		
+		
+		$('#userName').blur(function() {
+			var userName = $("#userName").val();
+			if (!userName || typeof(userName)!="undefined" || userName!=0){
+				window.wxcs.xcComfirm("您还没未输入用户名",window.wxcs.xcComfirm.typeEnum.custom);
+			}
+		})
+		$('#mobilePhone').blur(function() {
+			var mobilePhone = $("#mobilePhone").val();
+			if (!mobilePhone || typeof(mobilePhone)!="undefined" || mobilePhone!=0){
+				window.wxcs.xcComfirm("您还没未输入手机号",window.wxcs.xcComfirm.typeEnum.custom);
+			}
+			checkMobile(mobilePhone);
+		})
+		$('#cphm').blur(function() {
+			var cphm = $("#cphm").val();
+			if (!cphm || typeof(cphm)!="undefined" || cphm!=0){
+				window.wxcs.xcComfirm("您还没未输入车牌号",window.wxcs.xcComfirm.typeEnum.custom);
+			}
+			checkCarNumber(cphm);
+		})
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+package com.dragon.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
+
+import com.dragon.pojo.car.CarInfo;
+import com.dragon.service.UserService;
+import com.dragon.service.impl.UserServiceImpl;
+
+import net.sf.json.JSONObject;
+
+public class AddUserServlet extends HttpServlet {
+	
+	private static final long serialVersionUID = 7340394802783956250L;
+	private static final Logger logger = Logger.getLogger(AddUserServlet.class);
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		doPost(request,response);
+	}
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
+		PrintWriter out = response.getWriter();
+
+		String openId = (String)session.getAttribute("openId");
+		
+		
+		UserService userService = new UserServiceImpl();
+		
+		//基础字段（不为空）
+		String insertClpp = request.getParameter("insertClpp");
+		String insertCpsf = request.getParameter("insertCpsf");
+		String insertCphm = request.getParameter("insertCphm").toUpperCase();
+		String insertName = request.getParameter("insertName");
+		String insertMobile = request.getParameter("insertMobile");
+		
+		//标识位
+		String identify = request.getParameter("identify").trim();
+		
+		String car_index = request.getParameter("car_index");
+		logger.info("用户当前选择车辆的index是 : "+car_index);
+		
+		//高级字段
+		String insertCjh = request.getParameter("insertCjh");
+		String insertClxh = request.getParameter("insertClxh");
+		String insertClys = request.getParameter("insertClys");
+		String insertCllx = request.getParameter("insertCllx");
+		String insertBxrq = request.getParameter("insertBxrq");
+		String insertDjrq = request.getParameter("insertDjrq");
+		
+		JSONObject json = new JSONObject();
+		json.put("identify", identify);
+		json.put("openId", openId);
+		json.put("insertClpp", insertClpp);
+		json.put("insertCphm", insertCphm);
+		json.put("insertName", insertName );
+		json.put("insertPhone", insertMobile );
+		json.put("insertCjh", insertCjh );
+		json.put("insertClxh", insertClxh );
+		json.put("insertClys", insertClys );
+		json.put("insertCllx", insertCllx );
+		json.put("insertBxrq", insertBxrq );
+		json.put("insertDjrq", insertDjrq );
+		logger.info("新增用户车辆 json " + json);
+		
+		List<CarInfo> list = userService.getAllCarList(openId);
+		session.setAttribute("list", list);
+		
+		String a = "a";
+		//新增
+		if(identify.equals(a) || identify == "a"){
+			logger.info("用户"+openId+"发起增加车量信息的请求... ");
+			userService.insertSysUserInfo(openId, insertName, insertMobile, insertCpsf, insertCphm, insertCllx, insertClpp, insertClxh, insertCjh, insertDjrq, insertBxrq);
+		}else{//修改
+			logger.info("用户"+openId+"发起修改车量信息的请求... ");
+			int index = Integer.valueOf(car_index);
+			int carId = list.get(index).getCarId();
+			logger.info("该车辆的表主键是  "+carId);
+			
+			userService.updateSysUserInfo(carId, insertName, insertMobile, insertCpsf, insertCphm, insertCllx, insertClpp, insertClxh, insertCjh, insertDjrq, insertBxrq);
+		}
+		
+		
+		request.getRequestDispatcher("userCenter.jsp").forward(request,response);
+
+	}
+
+}

@@ -1,0 +1,4 @@
+[INFO ] 2016-08-08 14:07:08,480    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"access_token":"uQjcBi5yxOCK5DXEjru6QSyB0ApORhA4ph-Wz67ldSukPvHP8F8KIVCqXgz919BEw5r6jGApwZpbLc6kWDkQ8RMPc4ZIw50NuvlWSLvFQ49sxzxDuKN497cqJLWv8wFxQHCcAEABSN","expires_in":7200}
+[INFO ] 2016-08-08 14:07:08,573    com.dragon.utils.CommonUtil 普通接口访问凭证的access_token=={"access_token":"uQjcBi5yxOCK5DXEjru6QSyB0ApORhA4ph-Wz67ldSukPvHP8F8KIVCqXgz919BEw5r6jGApwZpbLc6kWDkQ8RMPc4ZIw50NuvlWSLvFQ49sxzxDuKN497cqJLWv8wFxQHCcAEABSN","expires_in":7200}
+[INFO ] 2016-08-08 14:07:09,218    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"errcode":0,"errmsg":"ok"}
+[INFO ] 2016-08-08 14:07:09,219  com.dragon.common.MenuManager 菜单创建成功！

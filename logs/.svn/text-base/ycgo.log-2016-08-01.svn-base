@@ -1,0 +1,12 @@
+[INFO ] 2016-08-01 10:18:15,359    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"access_token":"5gXz_LRfaVWi6ZdECZo0ddRZMol9RoQZa3hAg8d1zboqIVZbIrmzgie12I1ZQzDjI2_O_A-uvDMVbA8D4NMZvzNdKFe4plh4U0YXDz9Ox2vZMz-kL8aAymUkEsS0QAANZZCbABACCF","expires_in":7200}
+[INFO ] 2016-08-01 10:18:15,459    com.dragon.utils.CommonUtil 普通接口访问凭证的access_token=={"access_token":"5gXz_LRfaVWi6ZdECZo0ddRZMol9RoQZa3hAg8d1zboqIVZbIrmzgie12I1ZQzDjI2_O_A-uvDMVbA8D4NMZvzNdKFe4plh4U0YXDz9Ox2vZMz-kL8aAymUkEsS0QAANZZCbABACCF","expires_in":7200}
+[INFO ] 2016-08-01 10:18:16,038    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"errcode":0,"errmsg":"ok"}
+[INFO ] 2016-08-01 10:18:16,038  com.dragon.common.MenuManager 菜单创建成功！
+[INFO ] 2016-08-01 11:10:21,501    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"access_token":"X1gSK3x1x4tRYaX-DUNSJB_zBFTlwGJ5Jb4LYVOGw89CqFwQUkX1F5lLLpSBZo4FXblHvehkTSHWB2Pha9sORzlQr3009pxTtPLadHZjAPUoTv2oDlNKOInG1Sz4W9HABYFjAGAOLS","expires_in":7200}
+[INFO ] 2016-08-01 11:10:21,593    com.dragon.utils.CommonUtil 普通接口访问凭证的access_token=={"access_token":"X1gSK3x1x4tRYaX-DUNSJB_zBFTlwGJ5Jb4LYVOGw89CqFwQUkX1F5lLLpSBZo4FXblHvehkTSHWB2Pha9sORzlQr3009pxTtPLadHZjAPUoTv2oDlNKOInG1Sz4W9HABYFjAGAOLS","expires_in":7200}
+[INFO ] 2016-08-01 11:10:22,190    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"errcode":0,"errmsg":"ok"}
+[INFO ] 2016-08-01 11:10:22,190  com.dragon.common.MenuManager 菜单创建成功！
+[INFO ] 2016-08-01 11:16:45,890    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"access_token":"slIMnsMNJexsbETfciS_LTCqMLrMClGwuhXYlgdf57fhe6B9Lgv3EcrmldyfJ5ucle5jHOM4e3Yni2r5KbRl5qvu8EnG-jIBVgzjotp5-nj8LjEmpYHqpXTNDj5ZNvBzRNPhAAAVRT","expires_in":7200}
+[INFO ] 2016-08-01 11:16:45,981    com.dragon.utils.CommonUtil 普通接口访问凭证的access_token=={"access_token":"slIMnsMNJexsbETfciS_LTCqMLrMClGwuhXYlgdf57fhe6B9Lgv3EcrmldyfJ5ucle5jHOM4e3Yni2r5KbRl5qvu8EnG-jIBVgzjotp5-nj8LjEmpYHqpXTNDj5ZNvBzRNPhAAAVRT","expires_in":7200}
+[INFO ] 2016-08-01 11:16:46,577    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"errcode":0,"errmsg":"ok"}
+[INFO ] 2016-08-01 11:16:46,578  com.dragon.common.MenuManager 菜单创建成功！

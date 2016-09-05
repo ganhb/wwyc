@@ -1,0 +1,197 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<base href="<%=basePath%>">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>移车名片</title>
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="css/yichegou.min.css" />
+<link href="css/wemove_apply.css" rel="stylesheet"/>
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/xcConfirm.js"></script>
+</head>
+<body>
+<!-- 通过后台获取数据 -->
+<%
+	String userCpsf = (String) session.getAttribute("userCpsf");
+	String userCphm = (String) session.getAttribute("userCphm");	
+	if(null == userCpsf || null == userCphm){
+		userCpsf = "";
+		userCphm = "";
+	}
+ %>
+
+<!--生成移车贴-->
+<div data-role="page" id="page_ccard" style="background:#f2f2f4;" data-title="我的移车名片">
+	<div data-role="content" id="content_ccard">
+		<div class="add_newCar">
+				<div class="new_car">
+					<!-- 有右上角打勾 -->
+					<img width="20" src="img/check_f.png" />
+				</div>
+					<!-- 内容 -->
+				<div class="new_calling">
+					<img src="img/calling_card.png" /> 
+					<span class="phone_num">400-8208888</span>
+					<span class="car_num"><%=userCpsf %><%=userCphm %></span>
+				</div>
+			<!-- 空白处加号 -->
+			<div class="add_new" id="add_new_card">
+				<a></a>
+			</div>
+		</div>
+	</div>
+	<div data-role="footer" id="footer_ccard" data-position="fixed">
+		<div align="center">
+			<a class="download" data-role="none" >
+			<input type="button" value="下载" data-theme="d" id="down_btn"/></a>
+		</div>
+	</div>
+</div>
+
+
+<!--提交成功-->
+<div data-role="page" id="page_apply_s" style="background:#f2f2f4;" data-title="提交申请成功">
+	<div data-role="content" id="content_apply_s">
+		<h3 class="success">提交申请成功！正在跳转中。。。</h3>
+	</div>
+</div>
+
+
+
+
+<!--申请移车名片-->
+<div data-role="page" id="page_apply" data-theme="d" data-title="申请移车名片">
+	<div data-role="content" id="content_apply">
+		<div class="pm" style="display:none;"></div>
+		<p class="con_t">为了享受便捷的移车服务，请认真填写一下信息</p>
+
+		<form method="post" class="mgpd0" id="apply_form">
+
+			<ul data-role="listview" class="bgw">
+				<li>
+				<label>
+					<span class="mainc">*</span>
+					姓名:</label>
+					<div class="input_for">
+						<input name="userName" id="userName"/>
+					</div>
+				</li>
+				
+				<li>
+					<label><span class="mainc">*</span>手机:</label>
+					<div class="input_for">
+						<input placeholder="11位手机号码" name="userMobile" id="userMobile"/>
+					</div>
+				</li>
+				
+				<li style=" padding-left:;">
+					<label><span class="mainc">*</span>验证码:</label>
+					<div class="input_for codes">
+						<input placeholder="手机验证码" name="authCode" id="authCode"/>
+					</div>
+					<div onClick="change_code()" class="code_btn">获取验证码</div>
+
+					<div class="code_btnW" style="display:none;">59秒后重新发送</div>
+				</li>
+
+				<li class="d_box">
+					<label><span class="mainc">*</span>车牌号:</label>
+					<select class="car" data-role="none" id="userCpsf">
+						<option>闽</option>
+						<option>浙</option>
+						<option>赣</option>
+					</select>
+					<div class="input_for">
+						<input name="userCphm" id="userCphm"/>
+					</div>
+				</li>
+				
+				<li>
+					<label><span class="mainc"></span>获取方式:</label>
+					<span class=" select_d"><span class="way">请选择 </span> </span>
+				</li>
+				
+				<li class="sq" style="display:none;" name="userMethod" id="userMethod">
+					<span value="00">申请邮寄</span><br />
+					<span value="01">自主打印</span>
+				</li>
+				
+				<li class="li_dr" style="display:none;">
+					<label><span class="mainc">*</span>地址:</label>
+					<div id="productList"></div>
+				</li>
+				
+				<li class="li_dr" style="display:none;"><div
+						class="input_for detl_dr">
+						<input placeholder="详细地址" />
+					</div>
+				</li>
+			</ul>
+
+			<a href="#page_ccard" class="submit_btn">
+				<button type="submit" data-theme="d" id="userSubmit">提交</button>
+			</a>
+			<!-- 没用 -->
+		    <a href="#page_apply_s" class="submit_btn1">
+				<button type="submit" data-theme="d" >提交</button>
+			</a>
+		</form>
+	</div>
+
+</div>
+
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/jquery.mobile-1.4.5.js"></script>
+<script src="js/apply.js"></script>
+<script>
+/* +号按钮 */
+	$("#add_new_card").click(function(){
+			$.mobile.changePage("#page_apply",{transition : "slideup"});
+		})
+/* 点击下载保存图片 */
+	$("#down_btn").click(function(){
+	});
+	$("#userSubmit").click(function(){
+		var userName = $("#userName").val();
+		var userMobile = $("#userMobile").val();
+		var authCode = $("#authCode").val();
+		var userCpsf = $("#userCpsf option:selected").text();
+		var userCphm = $("#userCphm").val();
+		var userMethod = $("#userMethod").text();
+		$.ajax({
+			url 		:	 "userCard.do?username="+userName+"&mobile="+mobile,
+			type 		:	 "post",
+			async		: 	 true,
+			dataType	: 	 "json",
+			data		:	{
+							"userName" : userName,
+							"userMobile" : userMobile,
+							"authCode" : authCode,
+							"userCpsf"	: userCpsf,
+							"userCphm" : userCphm,
+							"userMethod" :userMethod
+							},
+			cache		:	false,
+			success 	: function(data) {
+							alert("success\n");
+						},
+			error		: function(data) {
+							alert("error\n");
+						}
+		})
+	})
+</script>
+
+</body>
+</html>
+

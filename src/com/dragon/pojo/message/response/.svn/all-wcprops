@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/yichegou/!svn/ver/48/01%E7%B3%BB%E7%BB%9F/%E6%BA%90%E4%BB%A3%E7%A0%81/branches/ycgo/src/com/dragon/pojo/message/response
+END
+ImageMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yichegou/!svn/ver/48/01%E7%B3%BB%E7%BB%9F/%E6%BA%90%E4%BB%A3%E7%A0%81/branches/ycgo/src/com/dragon/pojo/message/response/ImageMessage.java
+END
+VideoMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yichegou/!svn/ver/48/01%E7%B3%BB%E7%BB%9F/%E6%BA%90%E4%BB%A3%E7%A0%81/branches/ycgo/src/com/dragon/pojo/message/response/VideoMessage.java
+END
+Image.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yichegou/!svn/ver/48/01%E7%B3%BB%E7%BB%9F/%E6%BA%90%E4%BB%A3%E7%A0%81/branches/ycgo/src/com/dragon/pojo/message/response/Image.java
+END
+Video.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yichegou/!svn/ver/48/01%E7%B3%BB%E7%BB%9F/%E6%BA%90%E4%BB%A3%E7%A0%81/branches/ycgo/src/com/dragon/pojo/message/response/Video.java
+END
+TextMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yichegou/!svn/ver/48/01%E7%B3%BB%E7%BB%9F/%E6%BA%90%E4%BB%A3%E7%A0%81/branches/ycgo/src/com/dragon/pojo/message/response/TextMessage.java
+END
+Article.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/yichegou/!svn/ver/48/01%E7%B3%BB%E7%BB%9F/%E6%BA%90%E4%BB%A3%E7%A0%81/branches/ycgo/src/com/dragon/pojo/message/response/Article.java
+END
+BaseMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yichegou/!svn/ver/48/01%E7%B3%BB%E7%BB%9F/%E6%BA%90%E4%BB%A3%E7%A0%81/branches/ycgo/src/com/dragon/pojo/message/response/BaseMessage.java
+END
+Music.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yichegou/!svn/ver/48/01%E7%B3%BB%E7%BB%9F/%E6%BA%90%E4%BB%A3%E7%A0%81/branches/ycgo/src/com/dragon/pojo/message/response/Music.java
+END
+VoiceMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yichegou/!svn/ver/48/01%E7%B3%BB%E7%BB%9F/%E6%BA%90%E4%BB%A3%E7%A0%81/branches/ycgo/src/com/dragon/pojo/message/response/VoiceMessage.java
+END
+NewsMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/yichegou/!svn/ver/48/01%E7%B3%BB%E7%BB%9F/%E6%BA%90%E4%BB%A3%E7%A0%81/branches/ycgo/src/com/dragon/pojo/message/response/NewsMessage.java
+END
+MusicMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/yichegou/!svn/ver/48/01%E7%B3%BB%E7%BB%9F/%E6%BA%90%E4%BB%A3%E7%A0%81/branches/ycgo/src/com/dragon/pojo/message/response/MusicMessage.java
+END
+Voice.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/yichegou/!svn/ver/48/01%E7%B3%BB%E7%BB%9F/%E6%BA%90%E4%BB%A3%E7%A0%81/branches/ycgo/src/com/dragon/pojo/message/response/Voice.java
+END

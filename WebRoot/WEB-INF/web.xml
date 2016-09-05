@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<display-name></display-name>
+
+	<servlet>
+		<servlet-name>OauthServlet</servlet-name>
+		<servlet-class>com.dragon.servlet.OauthServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CoreServlet</servlet-name>
+		<servlet-class>com.dragon.servlet.CoreServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SMSServlet</servlet-name>
+		<servlet-class>com.dragon.servlet.SMSServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CallSMSServlet</servlet-name>
+		<servlet-class>com.dragon.servlet.CallSMSServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RegisterServlet</servlet-name>
+		<servlet-class>com.dragon.servlet.RegisterServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ParkReportServlet</servlet-name>
+		<servlet-class>com.dragon.servlet.ParkReportServlet</servlet-class>
+	</servlet>
+  <servlet>
+    <servlet-name>AddUserServlet</servlet-name>
+    <servlet-class>com.dragon.servlet.AddUserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UUCallServlet</servlet-name>
+    <servlet-class>com.dragon.servlet.UUCallServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UserCardServlet</servlet-name>
+    <servlet-class>com.dragon.servlet.UserCardServlet</servlet-class>
+  </servlet>
+
+
+
+ 
+
+
+
+
+
+	<servlet-mapping>
+		<servlet-name>OauthServlet</servlet-name>
+		<url-pattern>/oauthServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CoreServlet</servlet-name>
+		<url-pattern>/coreServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SMSServlet</servlet-name>
+		<url-pattern>/sms.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CallSMSServlet</servlet-name>
+		<url-pattern>/callSMS.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/reg.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ParkReportServlet</servlet-name>
+		<url-pattern>/parkReport.do</url-pattern>
+	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddUserServlet</servlet-name>
+    <url-pattern>/addUser.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UUCallServlet</servlet-name>
+    <url-pattern>/uuCallServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserCardServlet</servlet-name>
+    <url-pattern>/userCard.do</url-pattern>
+  </servlet-mapping>
+
+	
+	
+	
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+
+
+
+
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>com.dragon.filter.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>

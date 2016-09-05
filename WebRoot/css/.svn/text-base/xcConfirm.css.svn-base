@@ -1,0 +1,50 @@
+/*鍨傜洿灞呬腑*/
+.verticalAlign{ vertical-align:middle; display:inline-block; height:100%; margin-left:-1px;}
+/*鍚庨潰鑳屾櫙鑹�*/
+.xcConfirm .xc_layer{position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #666666; opacity: 0.5; z-index: 2147000000;}
+/*鏁翠釜鎻愮ず妗嗘牱寮忔牸灞�*/
+.xcConfirm .popBox{border:0px solid red;  position:absolute ; left: 50%; top: 50%; background-color: #ffffff; z-index: 2147000001; width: 30rem; height: 22rem; 
+					/*margin-left:-15rem;
+					margin-top:-15rem;*/
+					transform:translate(-50%,-50%); 
+					transform:translate(-50%,-50%);
+					-ms-transform: translate(-50%,-50%)       					 /* IE 9 */
+    				-webkit-transform: translate(-50%,-50%);  				    /* Safari and Chrome */
+    				-o-transform: translate(-50%,-50%);      				   /* Opera */
+   					-moz-transform: translate(-50%,-50%);
+     				border-radius: 2px; font-weight: 500; color: #535e66;}
+
+.xcConfirm .popBox .ttBox{height: 2rem; line-height: 2rem; padding: 1rem 2rem; border-bottom:solid 1px #D9D9D9;margin-left:10px;margin-right:10px}
+/*鏍囬杩欏嚑涓枃瀛�*/
+.xcConfirm .popBox .ttBox .tt{font-size:1.8rem; display:block; float:left;font-weight:600 }
+
+.xcConfirm .popBox .ttBox .clsBtn{display: block; cursor: pointer; width: 1.2rem; height: 1.2rem; position: absolute; top:1.4rem; right: 1rem; }
+
+.xcConfirm .popBox .txtBox{height:13.2rem; overflow: auto; position:relative;}
+
+/*鍐呭鐨勬枃瀛�*/
+.xcConfirm .popBox .txtBox p{width:22rem; margin-top:1rem;margin-left:4.6rem; line-height:2.4rem;  font-size:1.5rem;}
+
+.xcConfirm .popBox .txtBox p input{width:36rem; height:1rem; border: solid 1px #eef0f1; font-size: 1.8rem; margin-top:0.6rem;}
+/*涓嬮潰杩欐潯妯嚎*/
+.xcConfirm .popBox .btnArea{border-top: solid 1px #D9D9D9;margin-left:10px;margin-right:10px}
+
+.xcConfirm .popBox .btnGroup{width:30rem;margin-left:-8px;overflow:hidden;}
+.xcConfirm .popBox .btnGroup .sgBtn{margin:0rem 0px;}
+.xcConfirm .popBox .sgBtn{  display: block;
+							cursor: pointer; float: left; width: 14.5rem; height:4.5rem; 	
+							line-height: 5.0rem; text-align: center; color: #FFFFFF; border-radius: 2px;}
+
+/*
+.xcConfirm .popBox .sgBtn.ok{background-color: #f79c1b; color: #FFFFFF;font-weight:200}
+.xcConfirm .popBox .sgBtn.cancel{background-color:#e8e8e7; color:rgba(0,0,0,0.7);font-weight:200}
+*/
+
+.xcConfirm .popBox .sgBtn.cancel{border:0px solid #e8e8e7; color:rgba(0,0,0,0.7);font-weight:200;font-size:18px;}
+
+.xcConfirm .popBox .sgBtn.ok{ background-color: #f79c1b;border-right:2px solid #e8e8e7;
+							 color: #FFFFFF;font-weight:200;
+							 border-left:3px solid #f79c1b;border-bottom:2px solid #f79c1b;font-size:18px}
+
+
+

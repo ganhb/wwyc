@@ -1,0 +1,31 @@
+[ERROR] 2016-08-10 10:51:40,207    com.dragon.utils.CommonUtil 连接超时：{}
+java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:625)
+	at sun.security.ssl.BaseSSLSocketImpl.connect(BaseSSLSocketImpl.java:160)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:180)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:527)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:933)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1301)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:254)
+	at com.dragon.utils.CommonUtil.httpsRequest(CommonUtil.java:88)
+	at com.dragon.utils.CommonUtil.getToken(CommonUtil.java:123)
+	at snippet.UserTest.main(UserTest.java:23)
+[INFO ] 2016-08-10 10:51:40,222    com.dragon.utils.CommonUtil 普通接口访问凭证的access_token==null
+[INFO ] 2016-08-10 10:55:44,213    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"access_token":"Fp4-XvJSjW8zMCM0jcXFXLGw6ty6CkXQndzywbxZTil7y5WU4_0i-5sjmkFGxgxj41613ZwMv7Ce8gFDSg_xaTTEGOqvJ0xYX8DyQ7ic6K7-jGyO5uy5kUWmGFieYpZgDTLaADAVLD","expires_in":7200}
+[INFO ] 2016-08-10 10:55:44,330    com.dragon.utils.CommonUtil 普通接口访问凭证的access_token=={"access_token":"Fp4-XvJSjW8zMCM0jcXFXLGw6ty6CkXQndzywbxZTil7y5WU4_0i-5sjmkFGxgxj41613ZwMv7Ce8gFDSg_xaTTEGOqvJ0xYX8DyQ7ic6K7-jGyO5uy5kUWmGFieYpZgDTLaADAVLD","expires_in":7200}
+[INFO ] 2016-08-10 10:55:44,663    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"total":24,"count":24,"data":{"openid":["ovrT2wPvcfCguzXiNZDkrVRRSAIs","ovrT2wJcZU1jJu0AmgyrJSGuYRG8","ovrT2wBve9vs4u-Axspk41nZ-tvE","ovrT2wPi651i8SyRM2J1WcDNF2G4","ovrT2wMtWBmWloBTNLYRvhEydkw4","ovrT2wEoMd20zNiU7Hj4CyG7FOw4","ovrT2wPs0SlDK6DcZgewd4ndW8Tg","ovrT2wO0QpjFELL8eIyZfkrlq3H0","ovrT2wE3UKm6nzYpDFZAne9WpVYE","ovrT2wC9WsXngwiH25ab9aVVYtME","ovrT2wM-prYnJWxoxMEb5OpOLkz4","ovrT2wDxIwtR-eMQGq199oMnBbr4","ovrT2wK_IwnOCp_pL5isbQbw7mLQ","ovrT2wAjAdO2fYAXAzvxRMtxj7_E","ovrT2wFlXWe4pf03HkWgFh9Wwi6M","ovrT2wIknTnWZ63dKtujGnUBo1FU","ovrT2wL4m2OL6Nec9z8MGY04qMzs","ovrT2wBqTL2U-Lsd5TSty3Rv1HQY","ovrT2wINWSFxmKexfYeUlGwuhenM","ovrT2wFWnLPssgGKEoS56wCeyYRU","ovrT2wM2AW64BkDfwCKdMj3DnZGo","ovrT2wLFgRow-7SrKJ5CfPZsb1IU","ovrT2wP80_x0hAefKdhOuqwsYk8Q","ovrT2wL44YS4ahHUmJpzfEzVrEa0"]},"next_openid":"ovrT2wL44YS4ahHUmJpzfEzVrEa0"}
+[INFO ] 2016-08-10 10:55:44,967    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"subscribe":1,"openid":"ovrT2wP80_x0hAefKdhOuqwsYk8Q","nickname":"幻","sex":1,"language":"zh_CN","city":"南通","province":"江苏","country":"中国","headimgurl":"http:\/\/wx.qlogo.cn\/mmopen\/icXtjp9jsR5Ry235qVFvhTnSLh0fo9yBsP5L9icsia0GkIcWfm26wtwv7V7PvU29wseZjQmHZYS1lTiajIn8gXENh8S2lrWTKdl4\/0","subscribe_time":1466822532,"remark":"","groupid":0,"tagid_list":[]}
+[INFO ] 2016-08-10 10:55:45,215    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"groups":[{"id":0,"name":"未分组","count":24},{"id":1,"name":"黑名单","count":0},{"id":2,"name":"星标组","count":0},{"id":100,"name":"第一批测试用户","count":0},{"id":101,"name":"第一批测试用户","count":0}]}

@@ -1,0 +1,29 @@
+[INFO ] 2016-07-26 10:17:48,978    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"access_token":"SMtqSb-MM2UFFcwkbLJM-eZlbqq3R3w2HNV0s2RYCnfSyIwSd31nOcknUF83zivlLF1tx9TY0AISamcIolJ7Ce4b08PAfD3ha0pw9vpgljCz1LwJ8VL1NJId41SN68_BKLEiADABCV","expires_in":7200}
+[INFO ] 2016-07-26 10:17:49,073    com.dragon.utils.CommonUtil 普通接口访问凭证的access_token=={"access_token":"SMtqSb-MM2UFFcwkbLJM-eZlbqq3R3w2HNV0s2RYCnfSyIwSd31nOcknUF83zivlLF1tx9TY0AISamcIolJ7Ce4b08PAfD3ha0pw9vpgljCz1LwJ8VL1NJId41SN68_BKLEiADABCV","expires_in":7200}
+[INFO ] 2016-07-26 10:17:49,628    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"errcode":0,"errmsg":"ok"}
+[INFO ] 2016-07-26 10:17:49,628  com.dragon.common.MenuManager 菜单创建成功！
+[INFO ] 2016-07-26 10:26:41,249    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"access_token":"TqrvADPTjSlWhaBl8bfW65Sq04U3WG26Uz6RTbMR5q5vAEveT4pIIxMWwowwSkRWGyx8XLHiyjf9gGxrtZ4icQjCUEV0weabOZyEx3hGmxJrtNl9F6sWGvKmNMvZvdugBXIjACAPLW","expires_in":7200}
+[INFO ] 2016-07-26 10:26:41,353    com.dragon.utils.CommonUtil 普通接口访问凭证的access_token=={"access_token":"TqrvADPTjSlWhaBl8bfW65Sq04U3WG26Uz6RTbMR5q5vAEveT4pIIxMWwowwSkRWGyx8XLHiyjf9gGxrtZ4icQjCUEV0weabOZyEx3hGmxJrtNl9F6sWGvKmNMvZvdugBXIjACAPLW","expires_in":7200}
+[INFO ] 2016-07-26 10:26:41,951    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"errcode":0,"errmsg":"ok"}
+[INFO ] 2016-07-26 10:26:41,952  com.dragon.common.MenuManager 菜单创建成功！
+[INFO ] 2016-07-26 10:28:53,583    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"access_token":"Sfn_K-LIhbcDRqxiB0U9jJsXGS7F3S_lbrZZItL0a24soVrC70DvdWTFP4UdVO4WLEbwkKX9cG2RoBs13Wgu-f2TlEz9vAk87uldv-6DGCjhjAvCd7Vu4geUu8JNHT7CXMRdAHAPEJ","expires_in":7200}
+[INFO ] 2016-07-26 10:28:53,672    com.dragon.utils.CommonUtil 普通接口访问凭证的access_token=={"access_token":"Sfn_K-LIhbcDRqxiB0U9jJsXGS7F3S_lbrZZItL0a24soVrC70DvdWTFP4UdVO4WLEbwkKX9cG2RoBs13Wgu-f2TlEz9vAk87uldv-6DGCjhjAvCd7Vu4geUu8JNHT7CXMRdAHAPEJ","expires_in":7200}
+[INFO ] 2016-07-26 10:28:54,188    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"errcode":0,"errmsg":"ok"}
+[INFO ] 2016-07-26 10:28:54,189  com.dragon.common.MenuManager 菜单创建成功！
+[INFO ] 2016-07-26 10:31:41,295    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"access_token":"N1anmHGS0GLpoPu1iUTeY3N45WGK6eAyzcwvEHDQefnkICPRJXl2TEyIvACuTYyFKoNIri8SjxyopGiaD0MNh_iXiVt2CgloplVAj3wJRX__y1bRG_qfzK0v5aJ7-Yl0HRQhADANXW","expires_in":7200}
+[INFO ] 2016-07-26 10:31:41,378    com.dragon.utils.CommonUtil 普通接口访问凭证的access_token=={"access_token":"N1anmHGS0GLpoPu1iUTeY3N45WGK6eAyzcwvEHDQefnkICPRJXl2TEyIvACuTYyFKoNIri8SjxyopGiaD0MNh_iXiVt2CgloplVAj3wJRX__y1bRG_qfzK0v5aJ7-Yl0HRQhADANXW","expires_in":7200}
+[INFO ] 2016-07-26 10:31:41,920    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"errcode":0,"errmsg":"ok"}
+[INFO ] 2016-07-26 10:31:41,921  com.dragon.common.MenuManager 菜单创建成功！
+[INFO ] 2016-07-26 10:44:17,109    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"access_token":"yF79p8wp4ckJFWoNcP1jQD4MR9R0384bUhRZW48OLz4tfE8g2CyAY7IR0rY3ElR-zaZ1s4iOoppAuM7AJkjkvgVoUOGBjl88IOAaF4fNzMUmx_0x9EF7-YIZOqnH1Im2IMYbAGACGS","expires_in":7200}
+[INFO ] 2016-07-26 10:44:17,174    com.dragon.utils.CommonUtil 普通接口访问凭证的access_token=={"access_token":"yF79p8wp4ckJFWoNcP1jQD4MR9R0384bUhRZW48OLz4tfE8g2CyAY7IR0rY3ElR-zaZ1s4iOoppAuM7AJkjkvgVoUOGBjl88IOAaF4fNzMUmx_0x9EF7-YIZOqnH1Im2IMYbAGACGS","expires_in":7200}
+[INFO ] 2016-07-26 10:44:17,741    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"errcode":0,"errmsg":"ok"}
+[INFO ] 2016-07-26 10:44:17,742  com.dragon.common.MenuManager 菜单创建成功！
+[INFO ] 2016-07-26 10:58:37,717    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"access_token":"SwK3sn3gEZtvVBjfiAD-qJCcUEcXf24Ojt8q11msyHH7CmUf0OA_sL8xBD6r0RSemY5b7MNuGlxacLM_BV8PHcfInIz20y8PTkJ4fvKARq8oApRQ7A5qd0JOIbj5dgnTIFAbADAURM","expires_in":7200}
+[INFO ] 2016-07-26 10:58:37,811    com.dragon.utils.CommonUtil 普通接口访问凭证的access_token=={"access_token":"SwK3sn3gEZtvVBjfiAD-qJCcUEcXf24Ojt8q11msyHH7CmUf0OA_sL8xBD6r0RSemY5b7MNuGlxacLM_BV8PHcfInIz20y8PTkJ4fvKARq8oApRQ7A5qd0JOIbj5dgnTIFAbADAURM","expires_in":7200}
+[INFO ] 2016-07-26 10:58:38,230    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"errcode":40055,"errmsg":"invalid button url domain hint: [ldx3rA0913vr22]"}
+[ERROR] 2016-07-26 10:58:38,233      com.dragon.utils.MenuUtil 创建菜单失败 errcode:40055 errmsg:invalid button url domain hint: [ldx3rA0913vr22]
+[INFO ] 2016-07-26 10:58:38,234  com.dragon.common.MenuManager 菜单创建失败！
+[INFO ] 2016-07-26 11:02:08,998    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"access_token":"uHDBosgZ9SONbTn84XhK9U99KsYVKogJNnmrNiFQLw0gDvBqV5Ug9_USI119l5Ad9H0UyyudiFS8UvCv34pDZlvWCgICB4vYewxn4U8CdFCMAHeCJl2Es7mMwnuH9FduCOPgAHAFRS","expires_in":7200}
+[INFO ] 2016-07-26 11:02:09,082    com.dragon.utils.CommonUtil 普通接口访问凭证的access_token=={"access_token":"uHDBosgZ9SONbTn84XhK9U99KsYVKogJNnmrNiFQLw0gDvBqV5Ug9_USI119l5Ad9H0UyyudiFS8UvCv34pDZlvWCgICB4vYewxn4U8CdFCMAHeCJl2Es7mMwnuH9FduCOPgAHAFRS","expires_in":7200}
+[INFO ] 2016-07-26 11:02:09,628    com.dragon.utils.CommonUtil 输入流读取返回的内容为 => {"errcode":0,"errmsg":"ok"}
+[INFO ] 2016-07-26 11:02:09,629  com.dragon.common.MenuManager 菜单创建成功！

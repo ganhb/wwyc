@@ -1,0 +1,45 @@
+/*垂直居中*/
+.verticalAlign{ vertical-align:middle; display:inline-block; height:100%; margin-left:-1px;}
+/*后面背景色*/
+.xcComfirm .xc_layer{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #666666; opacity: 0.5; z-index: 2147000000;}
+/*整个提示框样式格局*/
+.xcComfirm .popBoxs{  position: fixed; left: 50%; top: 50%; background-color: #ffffff; z-index: 2147000001; width: 30rem; height: 22rem; 
+					transform:translate(-50%,-50%); border-radius: 2px; font-weight: 500; color: #535e66;}
+
+.xcComfirm .popBoxs .ttBox{height: 2rem; line-height: 2rem; padding: 1rem 2rem; border-bottom:solid 1px #D9D9D9;margin-left:10px;margin-right:10px}
+/*标题这几个文字*/
+.xcComfirm .popBoxs .ttBox .tt{font-size:1.8rem; display:block; float:left;font-weight:600 }
+
+.xcComfirm .popBoxs .ttBox .clsBtn{display: block; cursor: pointer; width: 1.2rem; height: 1.2rem; position: absolute; top:1.4rem; right: 1rem; }
+
+.xcComfirm .popBoxs .txtBox{height:13.2rem; overflow: auto; position:relative;}
+
+/*内容的文字*/
+.xcComfirm .popBoxs .txtBox p{width:22rem; margin-top:1rem;margin-left:4.6rem; line-height:2.4rem;  font-size:1.7rem;}
+
+.xcComfirm .popBoxs .txtBox p input{width:36rem; height:1rem; border: solid 1px #eef0f1; font-size: 1.8rem; margin-top:0.6rem;}
+/*下面这条横线*/
+.xcComfirm .popBoxs .btnArea{border-top: solid 0px #D9D9D9;margin-left:10px;margin-right:10px}
+
+.xcComfirm .popBoxs .btnGroup{ margin-top:-20px;border:0px solid red;width:30rem;margin-left:-8px;overflow:hidden;}
+.xcComfirm .popBoxs .btnGroup .sgBtn{margin:0rem 0px;}
+.xcComfirm .popBoxs .sgBtn{
+							 display: block;
+							cursor: pointer; float: left; width: 14.5rem; height:5.0rem; 	
+							line-height: 5.0rem; text-align: center; color: #FFFFFF; border-radius: 2px;}
+
+/*
+.xcComfirm .popBoxs .sgBtn.ok{background-color: #f79c1b; color: #FFFFFF;font-weight:200}
+.xcComfirm .popBoxs .sgBtn.cancel{background-color:#e8e8e7; color:rgba(0,0,0,0.7);font-weight:200}
+*/
+
+/*.xcComfirm .popBoxs .sgBtn.cancel{border:0px solid #e8e8e7; color:rgba(0,0,0,0.7);font-weight:200;font-size:18px}
+*/
+.xcComfirm .popBoxs .sgBtn.ok{margin-left:4.0em;
+							 background-color: #f79c1b; border-right:2px solid #e8e8e7;
+							 color: #FFFFFF;font-weight:200;
+							 border-left:3px solid #f79c1b;border-bottom:0px solid #f79c1b;font-size:18px;
+							 }
+
+
+
